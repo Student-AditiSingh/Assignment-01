@@ -1,0 +1,24 @@
+import java.util.*;
+public class Solution {
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        String s=sc.next();
+        String s1=s + s;
+        int maxSum=0;
+        
+        for(int i=0;i<s.length();i++){
+            Set<Character> seen=new HashSet<>();
+            int sum=0;
+            for(int j=i;j<i+s.length();j++){
+                char c=s1.charAt(j);
+                if(seen.contains(c))
+                    break;
+                
+                seen.add(c);
+                sum+= c-'a' +1;
+                maxSum=Math.max(maxSum, sum);
+            }
+        }
+        System.out.println(maxSum);
+    }
+}
